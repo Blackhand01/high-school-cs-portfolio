@@ -1,0 +1,136 @@
+#include <stdio.h>
+#include <conio2.h>
+#include <windows.h>
+int riga, colonna;
+int main () {
+	SetConsoleTitle("Quadrato magico e tabella pitagorica  ~ Powered by Montanaro&Paone");
+	int r, c, ri, co, i, j, pick, m, n, quadrato[19][19];
+	system ("cls");
+	do {
+		do {
+			int cornice;
+			textcolor(15);
+			gotoxy(38,10);
+			printf("Menu'");
+			gotoxy(30,12);
+			printf("1. Quadrato magico");
+			gotoxy(30,13);
+			printf("2. Tabella pitagorica");
+			gotoxy(30,14);
+			printf("3. Esci");
+			gotoxy(40,16);
+			fflush(stdin);
+			printf("Scegli _");
+			gotoxy(47,16);
+			scanf("%d", &pick);
+		}	while(pick<1 || pick>3);
+		switch(pick) {
+			case 1: {
+				int cornice;
+				n=0;
+				textcolor(15);
+				do {
+					gotoxy(59,2);
+					printf("              ");
+					gotoxy(2,2);
+					printf("Inserisci un numero dispari per creare il quadrato magico: ");
+					scanf("%d", &n);
+				} while((n%2)==0||n<3||n>19);
+				for(r=0; r<n; r++) {
+					for(c=0; c<n; c++) {
+						quadrato[r][c]=0;
+					}
+				}
+				r=0;
+				c=n/2;
+				quadrato[r][c]=1;
+				for(i=1; i<(n*n); i++) {
+					r=r-1;
+					if(r<0) {
+						r=n-1;
+					}
+					c++;
+					if(c>n-1) {
+						c=0;
+					}
+					if(quadrato[r][c]==0) {
+						quadrato[r][c]=i+1;
+					} else {
+						r=r+2;
+						if(r==n) {
+							r=0;
+						} else {
+							if(r==n+1) {
+								r=1;
+							}
+						}
+						c=c-1;
+
+						if(c<0) {
+							c=n-1;
+						}
+						quadrato[r][c]=i+1;
+					}
+				}
+				co=(80-(4*n))/2;
+				ri=((24-n)/2)+2;
+				for(r=0; r<n; r++) {
+					ri++;
+					gotoxy(co,ri);
+					for(c=0; c<n; c++) {
+					printf("%3d ", quadrato[r][c]);
+					}
+				}
+				getch();
+			}
+			break;
+			case 2: {
+				int cornice;
+				textcolor(15);
+				riga=4;
+				m=1;
+				do {
+					for(j=0, i=1, colonna=15; i<11; i++, colonna=colonna+5) {
+						j=i*m;
+						gotoxy(colonna,riga);
+						printf("%d", j);
+					}
+					m++;
+					riga=riga+2;
+				} while(m<11);
+				getch();
+			}
+			break;
+		}
+	} while (pick!=3);
+}
+
+int cornice(){
+	int b1=187, b2=200, b3=205, b4=186;
+	        riga=2;
+			colonna=2;
+			system("cls");
+			textcolor(9);
+			gotoxy(80,1);
+			printf("%c", b1);
+			gotoxy(80,25);
+			printf("%c", b1+1);
+			gotoxy(1,25);
+			printf("%c", b2);
+			gotoxy(1,1);
+			printf("%c", b2+1);
+			do {
+				gotoxy(colonna,1);
+				printf("%c", b3);
+				gotoxy(colonna,25);
+				printf("%c", b3);
+				colonna=colonna+1;
+			} while(colonna!=80);
+			do {
+				gotoxy(1,riga);
+				printf("%c", b4);
+				gotoxy(80,riga);
+				printf("%c", b4);
+				riga=riga+1;
+			} while(riga!=25);
+}

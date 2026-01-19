@@ -1,0 +1,25 @@
+Rubber ducky è una chiavetta virus che viene letta dal pc come una tastiera e inizia a spammare messaggi
+a una velocità elevata o per mandare virus...
+
+
+
+In questo sito ci sono scritti diversi codici per rubber ducky:
+https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Payloads
+
+
+Questo virus prende tutte le password che il computer ha da raccontare e le manda per gmail:
+https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Payload---download-mimikatz%2C-grab-passwords-and-email-them-via-gmail
+
+
+Questo virus prende il controllo remoto di un computer Mac dopo che il rubber ducky è stato inserito una volta:
+https://github.com/killingit57/bella-usb-rubber-ducky
+
+
+Questo virus ruba ill SAM prende le password di windows:
+Payload - Retrieve SAM and SYSTEM from a live file system
+
+
+In questo sito traduce le righe di codice per rubber ducky in codice per arduino:
+https://seytonic.com/ducky/
+
+

@@ -1,0 +1,389 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <conio2.h>
+#include <time.h>
+#include <windows.h>
+int main() {
+	int c1, c2, c3, c4, n1, n2, n3, n4, N, vite, pick, gpg, gps, m, c, d, u, riga, colonna, b1, b2, b3, b4, cont, col1, col2;
+	char risp;
+	int const p=254, l=219;
+	SetConsoleTitle("MasterMind ~ Powered by Montanaro&Paone");
+	N=kbhit();
+	b1=187;
+	b2=200;
+	b3=205;
+	b4=186;
+	cont=0;
+	srand(time(NULL));
+	do {
+		vite=9;
+		do {
+			if(cont==0) {
+				cont=cont+1;
+				riga=2;
+				colonna=2;
+				system("cls");
+				textcolor(9);
+				gotoxy(80,1);
+				printf("%c", b1);
+				gotoxy(80,25);
+				printf("%c", b1+1);
+				gotoxy(1,25);
+				printf("%c", b2);
+				gotoxy(1,1);
+				printf("%c", b2+1);
+				do {
+					delay(1);
+					gotoxy(colonna,1);
+					printf("%c", b3);
+					gotoxy(colonna,25);
+					printf("%c", b3);
+					colonna=colonna+1;
+				} while(colonna!=80);
+				do {
+					delay(1);
+					gotoxy(1,riga);
+					printf("%c", b4);
+					gotoxy(80,riga);
+					printf("%c", b4);
+					riga=riga+1;
+				} while(riga!=25);
+				pick=0;
+				textcolor(12);
+				gotoxy(13,3);
+				printf(" __  __           _                      _           _ ");
+				gotoxy(13,4);
+				printf("|  \\/  | __ _ ___| |_ ___ _ __ _ __ ___ (_)_ __   __| |");
+				gotoxy(13,5);
+				printf("| |\\/| |/ _` / __| __/ _ \\ '__| '_ ` _ \\| | '_ \\ / _` |");
+				gotoxy(13,6);
+				printf("| |  | | (_| \\__ \\ ||  __/ |  | | | | | | | | | | (_| |");
+				gotoxy(13,7);
+				printf("|_|  |_|\\__,_|___/\\__\\___|_|  |_| |_| |_|_|_| |_|\\__,_|");
+				gotoxy(13,8);
+				printf("                                                       ");
+				gotoxy(38,10);
+				printf("Menu'");
+				gotoxy(33,12);
+				printf("1. Gioca");
+				gotoxy(33,13);
+				printf("2. Istruzioni");
+				gotoxy(33,14);
+				printf("3. Esci");
+				gotoxy(38,16);
+				printf("Scegli _");
+				gotoxy(45,16);
+				fflush(stdin);
+				scanf("%d", &pick);
+			} else {
+				riga=2;
+				colonna=2;
+				system("cls");
+				textcolor(9);
+				gotoxy(80,1);
+				printf("%c", b1);
+				gotoxy(80,25);
+				printf("%c", b1+1);
+				gotoxy(1,25);
+				printf("%c", b2);
+				gotoxy(1,1);
+				printf("%c", b2+1);
+				do {
+					gotoxy(colonna,1);
+					printf("%c", b3);
+					gotoxy(colonna,25);
+					printf("%c", b3);
+					colonna=colonna+1;
+				} while(colonna!=80);
+				do {
+					gotoxy(1,riga);
+					printf("%c", b4);
+					gotoxy(80,riga);
+					printf("%c", b4);
+					riga=riga+1;
+				} while(riga!=25);
+				pick=0;
+				textcolor(12);
+				gotoxy(13,3);
+				printf(" __  __           _                      _           _ ");
+				gotoxy(13,4);
+				printf("|  \\/  | __ _ ___| |_ ___ _ __ _ __ ___ (_)_ __   __| |");
+				gotoxy(13,5);
+				printf("| |\\/| |/ _` / __| __/ _ \\ '__| '_ ` _ \\| | '_ \\ / _` |");
+				gotoxy(13,6);
+				printf("| |  | | (_| \\__ \\ ||  __/ |  | | | | | | | | | | (_| |");
+				gotoxy(13,7);
+				printf("|_|  |_|\\__,_|___/\\__\\___|_|  |_| |_| |_|_|_| |_|\\__,_|");
+				gotoxy(13,8);
+				printf("                                                       ");
+				gotoxy(38,10);
+				printf("Menu'");
+				gotoxy(33,12);
+				printf("1. Gioca");
+				gotoxy(33,13);
+				printf("2. Istruzioni");
+				gotoxy(33,14);
+				printf("3. Esci");
+				gotoxy(38,16);
+				printf("Scegli _");
+				gotoxy(45,16);
+				fflush(stdin);
+				scanf("%d", &pick);
+			}
+		} while(pick<1 || pick>3);
+		switch(pick) {
+			case 1: {
+				do{
+				colonna=4;
+				do {
+					gotoxy(34,19);
+					printf("Caricamento...");
+					delay(10);
+					gotoxy(colonna, 20);
+					printf("%c", l);
+					colonna=colonna+1;
+				} while(colonna!=77);
+				n1=rand()%9+1;
+				n2=rand()%10;
+				n3=rand()%10;
+				n4=rand()%10;
+				do {
+					textcolor(9);
+					riga=2;
+					colonna=2;
+					system("cls");
+					gotoxy(80,1);
+					printf("%c", b1);
+					gotoxy(80,25);
+					printf("%c", b1+1);
+					gotoxy(1,25);
+					printf("%c", b2);
+					gotoxy(1,1);
+					printf("%c", b2+1);
+					do {
+						gotoxy(colonna,1);
+						printf("%c", b3);
+						gotoxy(colonna,25);
+						printf("%c", b3);
+						colonna=colonna+1;
+					} while(colonna!=80);
+					do {
+						gotoxy(1,riga);
+						printf("%c", b4);
+						gotoxy(80,riga);
+						printf("%c", b4);
+						riga=riga+1;
+					} while(riga!=25);
+					textcolor(12);
+					gotoxy(30,6);
+					printf("Indovina il numero! %d%d%d%d",n1,n2,n3,n4);
+					if(vite==1) {
+						gotoxy(26,7);
+						printf("Hai a disposizione: %d tentativo", vite);
+					} else {
+						gotoxy(26,7);
+						printf("Hai a disposizione: %d tentativi", vite);
+					}
+					do {
+						gotoxy(25,11);
+						printf("Immetti un numero di quattro cifre: _");
+						gotoxy(62,11);
+						printf("                  ");
+						gotoxy(61,11);
+						fflush(stdin);
+						scanf("%d",&N);
+					} while(N<1000 || N>9999);
+					c1=N/1000;
+					c2=(N%1000)/100;
+					c3=(N%100)/10;
+					c4=N%10;
+					gpg=0;
+					gps=0;
+					if(c1==n2 || c1==n3 || c1==n4) {
+						gps=gps+1;
+					}
+					if(c2==n1 || c2==n3 || c2==n4) {
+						gps=gps+1;
+					}
+					if(c3==n1 || c3==n2 || c3==n4) {
+						gps=gps+1;
+					}
+					if(c4==n1 || c4==n2 || c4==n3) {
+						gps=gps+1;
+					}
+					if(c1==n1) {
+						gpg=gpg+1;
+					}
+					if(c2==n2) {
+						gpg=gpg+1;
+					}
+					if(c3==n3) {
+						gpg=gpg+1;
+					}
+					if(c4==n4) {
+						gpg=gpg+1;
+					}
+					if((n1*1000+n2*100+n3*10+n4)==N) {
+						gotoxy(10,19);
+						printf("Congratulazioni! Hai indovinato il numero!");
+						getch();
+					} else {
+						gotoxy(5,16);
+						printf("Cifre giuste al posto sbagliato: %d",gps);
+						gotoxy(5,17);
+						printf("Cifre giuste al posto giusto: %d",gpg);
+						vite=vite-1;
+						getch();
+					}
+					if(vite==0) {
+						textcolor(9);
+						riga=2;
+						colonna=2;
+						system("cls");
+						gotoxy(80,1);
+						printf("%c", b1);
+						gotoxy(80,25);
+						printf("%c", b1+1);
+						gotoxy(1,25);
+						printf("%c", b2);
+						gotoxy(1,1);
+						printf("%c", b2+1);
+						do {
+							gotoxy(colonna,1);
+							printf("%c", b3);
+							gotoxy(colonna,25);
+							printf("%c", b3);
+							colonna=colonna+1;
+						} while(colonna!=80);
+						do {
+							gotoxy(1,riga);
+							printf("%c", b4);
+							gotoxy(80,riga);
+							printf("%c", b4);
+							riga=riga+1;
+						} while(riga!=25);
+						textcolor(10);
+						col1=4;
+						col2=4;
+					    gotoxy(col1,5);
+					    printf(" ¦¦¦¦¦¦+  ¦¦¦¦¦+ ¦¦¦+   ¦¦¦+¦¦¦¦¦¦¦+     ¦¦¦¦¦¦+ ¦¦+   ¦¦+¦¦¦¦¦¦¦+¦¦¦¦¦¦+ ");
+						gotoxy(col2,6);
+						printf("¦¦+----+ ¦¦+--¦¦+¦¦¦¦+ ¦¦¦¦¦¦¦+----+    ¦¦+---¦¦+¦¦¦   ¦¦¦¦¦+----+¦¦+--¦¦+");
+						gotoxy(col1,7);
+						printf("¦¦¦  ¦¦¦+¦¦¦¦¦¦¦¦¦¦+¦¦¦¦+¦¦¦¦¦¦¦¦+      ¦¦¦   ¦¦¦¦¦¦   ¦¦¦¦¦¦¦¦+  ¦¦¦¦¦¦++");
+						gotoxy(col2,8);
+						printf("¦¦¦   ¦¦¦¦¦+--¦¦¦¦¦¦+¦¦++¦¦¦¦¦+--+      ¦¦¦   ¦¦¦+¦¦+ ¦¦++¦¦+--+  ¦¦+--¦¦+");
+						gotoxy(col1,9);
+						printf("+¦¦¦¦¦¦++¦¦¦  ¦¦¦¦¦¦ +-+ ¦¦¦¦¦¦¦¦¦¦+    +¦¦¦¦¦¦++ +¦¦¦¦++ ¦¦¦¦¦¦¦+¦¦¦  ¦¦¦");
+						gotoxy(col2,10);
+						printf(" +-----+ +-+  +-++-+     +-++------+     +-----+   +---+  +------++-+  +-+");
+						col1=col1+1;
+						col2=col2-1;
+						delay(10);
+						col1=col1-1;
+						col2=col2+1;
+						gotoxy(5,15);
+						printf("Premere un tasto per riprovare _");
+						gotoxy(36,15);
+						getch();
+						vite=9;
+					}
+				} while((n1*1000+n2*100+n3*10+n4)!=N);
+			}while(N==97);
+			}
+			break;
+			case 2: {
+				system("cls");
+				riga=2;
+				colonna=2;
+				textcolor(9);
+				gotoxy(80,1);
+				printf("%c", b1);
+				gotoxy(80,25);
+				printf("%c", b1+1);
+				gotoxy(1,25);
+				printf("%c", b2);
+				gotoxy(1,1);
+				printf("%c", b2+1);
+				do {
+					gotoxy(colonna,1);
+					printf("%c", b3);
+					gotoxy(colonna,25);
+					printf("%c", b3);
+					colonna=colonna+1;
+				} while(colonna!=80);
+				do {
+					gotoxy(1,riga);
+					printf("%c", b4);
+					gotoxy(80,riga);
+					printf("%c", b4);
+					riga=riga+1;
+				} while(riga!=25);
+				textcolor(12);
+				gotoxy(35,3);
+				printf("ISTRUZIONI");
+				gotoxy(4,5);
+				printf("In Mastermind il computer generera' un numero casuale tra 1000 e 9999.");
+				gotoxy(4,6);
+				printf("Dopo che il codificatore ha composto il codice, l'utente (il decodificatore)");
+				gotoxy(4,7);
+				printf("fa il suo primo tentativo, cercando di indovinare il numero.");
+				gotoxy(4,8);
+				printf("Il  computer,   appena  il   suo  avversario   ha   completato   il   turno,");
+				gotoxy(4,9);
+				printf("fornisce degli aiuti comunicando:");
+				gotoxy(6,11);
+				printf("%c Il numero di cifre giuste al posto giusto;", p);
+				gotoxy(6,12);
+				printf("%c Il numero di cifre giuste al posto sbagliato.", p);
+				gotoxy(4,14);
+				printf("Si hanno a disposizione 9 tentativi per indovinare il numero corretto.");
+				gotoxy(38,16);
+				printf("Premere un tasto per continuare _");
+				gotoxy(70,16);
+				getch();
+			}
+			break;
+			case 3: {
+				do {
+					system("cls");
+					riga=2;
+					colonna=2;
+					textcolor(9);
+					gotoxy(80,1);
+					printf("%c", b1);
+					gotoxy(80,25);
+					printf("%c", b1+1);
+					gotoxy(1,25);
+					printf("%c", b2);
+					gotoxy(1,1);
+					printf("%c", b2+1);
+					do {
+						gotoxy(colonna,1);
+						printf("%c", b3);
+						gotoxy(colonna,25);
+						printf("%c", b3);
+						colonna=colonna+1;
+					} while(colonna!=80);
+					do {
+						gotoxy(1,riga);
+						printf("%c", b4);
+						gotoxy(80,riga);
+						printf("%c", b4);
+						riga=riga+1;
+					} while(riga!=25);
+					textcolor(12);
+					gotoxy(25,4);
+					printf("Vuoi davvero uscire? (S/N) _");
+					fflush(stdin);
+					gotoxy(52,4);
+					scanf("%c", &risp);
+				} while(risp!='s' && risp!='S' && risp!='n' && risp!='N');
+				if(risp=='n' || risp=='N') {
+					pick=0;
+				}
+			}
+		}
+		fflush(stdin);
+	} while (pick!=3);
+} //fine programma

@@ -1,0 +1,35 @@
+#include<stdlib.h>
+#include<stdio.h>
+#include<conio2.h>
+#include<string.h>
+int main {
+	struct gesu {
+		int id, contsi, sesso
+	};
+	gesu tabellone[1000];
+	int voto, ns, scelta;
+	do{
+		do{
+			printf("1. input");
+			printf("\n2. ordinamento");
+			printf("\n3. visualizzazione");
+			printf("\n4. esci");
+			printf("\nscegli --> ");
+			scanf("%d", &scelta);
+		} while(scelta<1||scelta>4);
+		switch(scelta) {
+			case:
+				1 {
+					system("cls");
+					printf("immetere id");
+					scanf("%gesu", &id);
+					do{
+						printf("sei maschio (1) o femmina(2)?");
+						scanf("%gesu", &sesso)
+					} while(sesso<1||sesso>2);
+				} break;
+		}
+	} while(scelta!=4);
+}
+
+

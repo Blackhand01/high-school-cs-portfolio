@@ -1,0 +1,501 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <conio2.h>
+#include <windows.h>
+int main () {
+	int const n=5, b1=187, b2=200, b3=205, b4=186;
+	int scelta, tc, i, riga, colonna, cont, riga1, ora;
+	float V[n], tmin, tmax, tmedia;
+	char risp;
+	SetConsoleTitle("Meteo ~ Powered by Montanaro&Paone");
+	cont=0;
+	tc=0;
+	i=0;
+	do {
+		if(tc==0) {
+			do {
+				system ("cls");
+				if(cont==0) {
+					cont=cont+1;
+					riga=2;
+					colonna=2;
+					system("cls");
+					textcolor(9);
+					gotoxy(80,1);
+					printf("%c", b1);
+					gotoxy(80,25);
+					printf("%c", b1+1);
+					gotoxy(1,25);
+					printf("%c", b2);
+					gotoxy(1,1);
+					printf("%c", b2+1);
+					do {
+						delay(1);
+						gotoxy(colonna,1);
+						printf("%c", b3);
+						gotoxy(colonna,25);
+						printf("%c", b3);
+						colonna=colonna+1;
+					} while(colonna!=80);
+					do {
+						delay(1);
+						gotoxy(1,riga);
+						printf("%c", b4);
+						gotoxy(80,riga);
+						printf("%c", b4);
+						riga=riga+1;
+					} while(riga!=25);
+					textcolor(12);
+					gotoxy(26,2);
+					printf(" __  __      _             ");
+					gotoxy(26,3);
+					printf("|  \\/  |    | |            ");
+					gotoxy(26,4);
+					printf("| \\  / | ___| |_ ___  ___  ");
+					gotoxy(26,5);
+					printf("| |\\/| |/ _ \\ __/ _ \\/ _ \\ ");
+					gotoxy(26,6);
+					printf("| |  | |  __/ ||  __/ (_) |");
+					gotoxy(26,7);
+					printf("|_|  |_|\\___|\\__\\___|\\___/ ");
+					scelta=0;
+					textcolor(15);
+					gotoxy(38,10);
+					printf("Menu'");
+					gotoxy(20,12);
+					printf("1. Carica temperatura");
+					textcolor(8);
+					gotoxy(20,13);
+					printf("2. Visualizza temperatura in ora specifica");
+					gotoxy(20,14);
+					printf("3. Ricerca temperatura minima");
+					gotoxy(20,15);
+					printf("4. Ricerca temperatura massima");
+					gotoxy(20,16);
+					printf("5. Visualizza tutte le temperature");
+					gotoxy(20,17);
+					printf("6. Calcolo media temperature");
+					textcolor(15);
+					gotoxy(20,18);
+					printf("7. Esci");
+					gotoxy(30,20);
+					printf("Scegli _");
+					gotoxy(37,20);
+					fflush(stdin);
+					scanf("%d", &scelta);
+				} else {
+					riga=2;
+					colonna=2;
+					system("cls");
+					textcolor(9);
+					gotoxy(80,1);
+					printf("%c", b1);
+					gotoxy(80,25);
+					printf("%c", b1+1);
+					gotoxy(1,25);
+					printf("%c", b2);
+					gotoxy(1,1);
+					printf("%c", b2+1);
+					do {
+						gotoxy(colonna,1);
+						printf("%c", b3);
+						gotoxy(colonna,25);
+						printf("%c", b3);
+						colonna=colonna+1;
+					} while(colonna!=80);
+					do {
+						gotoxy(1,riga);
+						printf("%c", b4);
+						gotoxy(80,riga);
+						printf("%c", b4);
+						riga=riga+1;
+					} while(riga!=25);
+					textcolor(12);
+					gotoxy(26,2);
+					printf(" __  __      _             ");
+					gotoxy(26,3);
+					printf("|  \\/  |    | |            ");
+					gotoxy(26,4);
+					printf("| \\  / | ___| |_ ___  ___  ");
+					gotoxy(26,5);
+					printf("| |\\/| |/ _ \\ __/ _ \\/ _ \\ ");
+					gotoxy(26,6);
+					printf("| |  | |  __/ ||  __/ (_) |");
+					gotoxy(26,7);
+					printf("|_|  |_|\\___|\\__\\___|\\___/ ");
+					scelta=0;
+					textcolor(15);
+					gotoxy(38,10);
+					printf("Menu'");
+					gotoxy(20,12);
+					printf("1. Carica temperatura");
+					textcolor(8);
+					gotoxy(20,13);
+					printf("2. Visualizza temperatura in ora specifica");
+					gotoxy(20,14);
+					printf("3. Ricerca temperatura minima");
+					gotoxy(20,15);
+					printf("4. Ricerca temperatura massima");
+					gotoxy(20,16);
+					printf("5. Visualizza tutte le temperature");
+					gotoxy(20,17);
+					printf("6. Calcolo media temperature");
+					textcolor(15);
+					gotoxy(20,18);
+					printf("7. Esci");
+					gotoxy(30,20);
+					printf("Scegli _");
+					gotoxy(37,20);
+					fflush(stdin);
+					scanf("%d", &scelta);
+				}
+			} while(scelta!=1 && scelta!=7);
+		} else {
+			do {
+				riga=2;
+				colonna=2;
+				system("cls");
+				textcolor(9);
+				gotoxy(80,1);
+				printf("%c", b1);
+				gotoxy(80,25);
+				printf("%c", b1+1);
+				gotoxy(1,25);
+				printf("%c", b2);
+				gotoxy(1,1);
+				printf("%c", b2+1);
+				do {
+					gotoxy(colonna,1);
+					printf("%c", b3);
+					gotoxy(colonna,25);
+					printf("%c", b3);
+					colonna=colonna+1;
+				} while(colonna!=80);
+				do {
+					gotoxy(1,riga);
+					printf("%c", b4);
+					gotoxy(80,riga);
+					printf("%c", b4);
+					riga=riga+1;
+				} while(riga!=25);
+				textcolor(12);
+					gotoxy(26,2);
+					printf(" __  __      _             ");
+					gotoxy(26,3);
+					printf("|  \\/  |    | |            ");
+					gotoxy(26,4);
+					printf("| \\  / | ___| |_ ___  ___  ");
+					gotoxy(26,5);
+					printf("| |\\/| |/ _ \\ __/ _ \\/ _ \\ ");
+					gotoxy(26,6);
+					printf("| |  | |  __/ ||  __/ (_) |");
+					gotoxy(26,7);
+					printf("|_|  |_|\\___|\\__\\___|\\___/ ");
+				scelta=0;
+				textcolor(15);
+				gotoxy(38,10);
+				printf("Menu'");
+				gotoxy(20,12);
+				printf("1. Carica temperatura");
+				gotoxy(20,13);
+				printf("2. Visualizza temperatura in ora specifica");
+				gotoxy(20,14);
+				printf("3. Ricerca temperatura minima");
+				gotoxy(20,15);
+				printf("4. Ricerca temperatura massima");
+				gotoxy(20,16);
+				printf("5. Visualizza tutte le temperature");
+				gotoxy(20,17);
+				printf("6. Calcolo media temperature");
+				gotoxy(20,18);
+				printf("7. Esci");
+				gotoxy(30,20);
+				printf("Scegli _");
+				gotoxy(37,20);
+				fflush(stdin);
+				scanf("%d", &scelta);
+			} while(scelta<1 || scelta>7);
+		}
+		switch(scelta) {
+			case 1: {
+				system("cls");
+				riga=2;
+				colonna=2;
+				system("cls");
+				textcolor(9);
+				gotoxy(80,1);
+				printf("%c", b1);
+				gotoxy(80,25);
+				printf("%c", b1+1);
+				gotoxy(1,25);
+				printf("%c", b2);
+				gotoxy(1,1);
+				printf("%c", b2+1);
+				do {
+					gotoxy(1,riga);
+					printf("%c", b4);
+					gotoxy(80,riga);
+					printf("%c", b4);
+					riga=riga+1;
+				} while(riga!=25);
+				textcolor(15);
+				tc=1;
+				riga1=1;
+				for (i=0; i<n; i++) {
+					do {
+						gotoxy(47, riga1);
+						printf("                       ");
+						gotoxy(4, riga1);
+						printf ("Immetti la temperatura delle ore %d:00 --> ", i);
+						gotoxy(47, riga1);
+						scanf ("%f", &V[i]);
+					} while(V[i]<1 || V[i]>999);
+					riga1=riga1+1;
+				}
+			}
+			break;
+			case 2: {
+				system("cls");
+				riga=2;
+				colonna=2;
+				system("cls");
+				textcolor(9);
+				gotoxy(80,1);
+				printf("%c", b1);
+				gotoxy(80,25);
+				printf("%c", b1+1);
+				gotoxy(1,25);
+				printf("%c", b2);
+				gotoxy(1,1);
+				printf("%c", b2+1);
+				do {
+					gotoxy(colonna,1);
+					printf("%c", b3);
+					gotoxy(colonna,25);
+					printf("%c", b3);
+					colonna=colonna+1;
+				} while(colonna!=80);
+				do {
+					gotoxy(1,riga);
+					printf("%c", b4);
+					gotoxy(80,riga);
+					printf("%c", b4);
+					riga=riga+1;
+				} while(riga!=25);
+				textcolor(15);
+				gotoxy(4,3);
+				printf ("Immettere l'ora di cui si vuole sapere la temperatura _");
+				gotoxy(58,3);
+				scanf ("%d", &i);
+				if(i==1) {
+					gotoxy(4,4);
+					printf ("La temperatura all'%d:00 e' di %5.2f gradi.", i, V[i]);
+				} else {
+					gotoxy(4,4);
+					printf ("La temperatura alle %d:00 e' di %5.2f gradi.", i, V[i]);
+				}
+				getch();
+			}
+			break;
+			case 3: {
+				system("cls");
+				riga=2;
+				colonna=2;
+				system("cls");
+				textcolor(9);
+				gotoxy(80,1);
+				printf("%c", b1);
+				gotoxy(80,25);
+				printf("%c", b1+1);
+				gotoxy(1,25);
+				printf("%c", b2);
+				gotoxy(1,1);
+				printf("%c", b2+1);
+				do {
+					gotoxy(colonna,1);
+					printf("%c", b3);
+					gotoxy(colonna,25);
+					printf("%c", b3);
+					colonna=colonna+1;
+				} while(colonna!=80);
+				do {
+					gotoxy(1,riga);
+					printf("%c", b4);
+					gotoxy(80,riga);
+					printf("%c", b4);
+					riga=riga+1;
+				} while(riga!=25);
+				textcolor(15);
+				tmin=V[0];
+				ora=0;
+				for(i=1; i<n; i++) {
+					if(V[i]<tmin) {
+						tmin=V[i];
+						ora=i;
+					}
+				}
+				gotoxy(4,4);
+				printf("La temperatura minima e' di %5.2f gradi.", tmin);
+				getch();
+			}
+			break;
+			case 4: {
+				system("cls");
+				riga=2;
+				colonna=2;
+				system("cls");
+				textcolor(9);
+				gotoxy(80,1);
+				printf("%c", b1);
+				gotoxy(80,25);
+				printf("%c", b1+1);
+				gotoxy(1,25);
+				printf("%c", b2);
+				gotoxy(1,1);
+				printf("%c", b2+1);
+				do {
+					gotoxy(colonna,1);
+					printf("%c", b3);
+					gotoxy(colonna,25);
+					printf("%c", b3);
+					colonna=colonna+1;
+				} while(colonna!=80);
+				do {
+					gotoxy(1,riga);
+					printf("%c", b4);
+					gotoxy(80,riga);
+					printf("%c", b4);
+					riga=riga+1;
+				} while(riga!=25);
+				textcolor(15);
+				tmax=V[0];
+				ora=0;
+				for(i=1; i<n; i++) {
+					if(V[i]>tmax) {
+						tmax=V[i];
+						ora=i;
+					}
+				}
+				gotoxy(4,4);
+				printf("La temperatura massima e' di %5.2f gradi.", tmax);
+				getch();
+			}
+			break;
+			case 5: {
+				riga=2;
+				colonna=2;
+				system("cls");
+				textcolor(9);
+				gotoxy(80,1);
+				printf("%c", b1);
+				gotoxy(80,25);
+				printf("%c", b1+1);
+				gotoxy(1,25);
+				printf("%c", b2);
+				gotoxy(1,1);
+				printf("%c", b2+1);
+				do {
+					gotoxy(1,riga);
+					printf("%c", b4);
+					gotoxy(80,riga);
+					printf("%c", b4);
+					riga=riga+1;
+				} while(riga!=25);
+				textcolor(15);
+				riga1=1;
+				for (i=0; i<n; i++) {
+					if(i==1) {
+						gotoxy(4, riga1);
+						printf ("Temperatura dell' %d:00 --> %5.2f gradi.", i, V[i]);
+						riga1=riga1+1;
+					} else {
+						gotoxy(4, riga1);
+						printf ("Temperatura delle %d:00 --> %5.2f gradi.", i, V[i]);
+						riga1=riga1+1;
+					}
+				}
+				getch();
+			}
+			break;
+			case 6: {
+				system("cls");
+				riga=2;
+				colonna=2;
+				system("cls");
+				textcolor(9);
+				gotoxy(80,1);
+				printf("%c", b1);
+				gotoxy(80,25);
+				printf("%c", b1+1);
+				gotoxy(1,25);
+				printf("%c", b2);
+				gotoxy(1,1);
+				printf("%c", b2+1);
+				do {
+					gotoxy(colonna,1);
+					printf("%c", b3);
+					gotoxy(colonna,25);
+					printf("%c", b3);
+					colonna=colonna+1;
+				} while(colonna!=80);
+				do {
+					gotoxy(1,riga);
+					printf("%c", b4);
+					gotoxy(80,riga);
+					printf("%c", b4);
+					riga=riga+1;
+				} while(riga!=25);
+				textcolor(15);
+				tmedia=0;
+				for(i=0; i<n; i++){
+					tmedia=tmedia+V[i];
+				}
+				tmedia=tmedia/n;
+				gotoxy(4,4);
+				printf("La temperatura media e' di %5.2f gradi.", tmedia);
+				getch();
+			} break;
+			case 7: {
+				do {
+					system("cls");
+					riga=2;
+					colonna=2;
+					textcolor(9);
+					gotoxy(80,1);
+					printf("%c", b1);
+					gotoxy(80,25);
+					printf("%c", b1+1);
+					gotoxy(1,25);
+					printf("%c", b2);
+					gotoxy(1,1);
+					printf("%c", b2+1);
+					do {
+						gotoxy(colonna,1);
+						printf("%c", b3);
+						gotoxy(colonna,25);
+						printf("%c", b3);
+						colonna=colonna+1;
+					} while(colonna!=80);
+					do {
+						gotoxy(1,riga);
+						printf("%c", b4);
+						gotoxy(80,riga);
+						printf("%c", b4);
+						riga=riga+1;
+					} while(riga!=25);
+					textcolor(15);
+					gotoxy(25,4);
+					printf("Vuoi davvero uscire? (S/N) _");
+					fflush(stdin);
+					gotoxy(52,4);
+					scanf("%c", &risp);
+				} while(risp!='s' && risp!='S' && risp!='n' && risp!='N');
+				if(risp=='n' || risp=='N') {
+					scelta=0;
+				}
+			}
+		}
+		fflush(stdin);
+	} while(scelta!=7);
+} //fine programma
+

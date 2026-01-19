@@ -1,0 +1,384 @@
+#include<iostream>
+#include<conio2.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<windows.h>
+#include<time.h>
+
+int main()
+{
+ int scelta,sceltadiff,C,DM,N,M,D,U,n1,n2,n3,n4,c1,c2,c3,c4,gpg,gps,vite;
+ char risp;
+ 
+ srand(time(0));
+do{
+ do {
+    system("cls");
+    textcolor(14);
+    gotoxy(35,1);
+    printf("Mastermind");
+    gotoxy(20,7);
+    printf("1-Regole");
+    gotoxy(20,9);
+    printf("2-Gioca");
+    gotoxy(20,11);
+    printf("3-Esci");
+    gotoxy(20,13);
+    printf("Immetti l'opzione desiderata: ");
+    fflush(stdin);
+    scanf("%d",&scelta);
+  }while(scelta<1 || scelta>3);
+
+ 
+  switch(scelta){ 
+                  case 1: {
+                  system("cls");
+       
+           
+           gotoxy(30,1);
+           printf("Regole del gioco");
+           gotoxy(5,7);
+           printf("1-Devi indovinare un numero composto da 4 cifre");
+           gotoxy(5,9);
+           printf("2-Hai a disposizione 5/10/15 tentativi ");
+           gotoxy(5,11);
+           printf("3-Il numero DEVE essere compreso tra 0000 e 1000 o 9999 ");
+           gotoxy(5,13);
+           printf("4-I numeri e tentativi massimi varieranno a seconda della difficolta' scelta");
+           gotoxy(5,17);
+           printf("Premere un tasto qualsiasi per ritornare al menu.");
+           getch();
+        }break;
+ 
+ 
+ case 2: { 
+          
+	
+		  
+  
+  
+  
+  system("cls");
+	 textcolor(14); 
+ 	gotoxy(30,1);
+    printf("Indovina il numero!");
+    gotoxy(10,8);
+	printf("1-Facile");
+	gotoxy(10,10);
+	printf("2-Normale");
+	gotoxy(10,12);
+	printf("3-Difficile");
+	gotoxy(10,14);
+    printf("Scegli la dificoltà a cui vuoi giocare : ");
+    scanf("%d",&sceltadiff);
+    
+    
+    
+    switch(sceltadiff){
+   	case 1: {
+    		
+    		
+    		n1=rand()%2;
+          n2=rand()%10;
+          n3=rand()%10;
+          n4=rand()%10;
+          
+          if(n1==1)
+          {n2=0;
+           n3=0;
+           n4=0;
+		  }
+		    vite=15;
+    
+    		C=vite;
+    		
+    		
+    		      do {
+   system("cls");
+	 textcolor(14); 
+ 	gotoxy(30,1);
+    printf("Indovina il numero! %d%d%d%d",n1,n2,n3,n4);
+	 gotoxy(8,5);
+    printf("\nHai a disposizione: %d tentativi",C);
+    do{
+ 	 gotoxy(1,9);
+    printf("Immetti un numero di quattro cifre: ");
+    gotoxy(37,9);
+    printf("                            ");
+    gotoxy(37,9);
+    fflush(stdin);
+    scanf("%d",&N);
+    }while(N<0 || N>1000);
+    c1=N/1000;
+    c2=(N%1000)/100;
+    c3=(N%100)/10;
+    c4=N%10;
+    
+    
+    if(n1==c1)
+     {gotoxy(2,11);
+     printf("Indovinata prima cifra:   %d",c1);}
+    if(n2==c2)
+     {gotoxy(2,12);
+     printf("Indovinata seconda cifra: %d",c2);}
+    if(n3==c3)
+     {gotoxy(2,13);
+     printf("Indovinata terza cifra:   %d",c3);}
+    if(n4==c4)
+     {gotoxy(2,14);
+     printf("Indovinata quarta cifra:  %d",c4);}
+	getch();
+	
+	
+	  if((n1*1000+n2*100+n3*10+n4)==N)
+{     gotoxy(2,16);
+      printf("\nCongratulazioni! Hai indovinato il numero!");
+	  getch();
+         
+}	
+
+if(C==0){
+  system("cls");
+
+     gotoxy(35,1);
+     printf("Hai perso!");
+     gotoxy(5,5);
+     printf("Ritenta e sarai piu' fortunato.");
+     gotoxy(5,10);
+     printf("Premere un tasto qualsiasi per riprovare.");
+     C=vite;
+     getch();
+   } 
+    C=C-1;
+     getch(); 
+   
+  }while((n1*1000+n2*100+n3*10+n4)!=N);
+
+	
+		
+			
+	}break;
+	
+	 
+	
+    case 2: {n1=rand()%10;
+          n2=rand()%10;
+          n3=rand()%10;
+          n4=rand()%10;
+          
+          vite=10;
+    		C=vite;
+    		
+    		      do {
+   system("cls");
+	 textcolor(14); 
+ 	gotoxy(30,1);
+    printf("Indovina il numero! %d%d%d%d",n1,n2,n3,n4);
+	 gotoxy(8,5);
+    printf("\nHai a disposizione: %d tentativi",C);
+    do{
+ 	 gotoxy(1,9);
+    printf("Immetti un numero di quattro cifre: ");
+    gotoxy(37,9);
+    printf("                            ");
+    gotoxy(37,9);
+    fflush(stdin);
+    scanf("%d",&N);
+    }while(N<0 || N>9999);
+    c1=N/1000;
+    c2=(N%1000)/100;
+    c3=(N%100)/10;
+    c4=N%10;
+    gpg=0;
+    gps=0;
+    
+    	if(c1==n2 || c1==n3 || c1==n4)
+    {gps=gps+1;
+	}
+	if(c2==n1 || c2==n3 || c2==n4)
+    {gps=gps+1;
+	}
+	if(c3==n1 || c3==n2 || c3==n4)
+    {gps=gps+1;
+	}
+	if(c4==n1 || c1==n2 || c1==n3)
+    {gps=gps+1;
+	}
+	if(c1==n1)
+    {gpg=gpg+1;
+	}
+	if(c2==n2)
+    {gpg=gpg+1;
+	}
+	if(c3==n3)
+    {gpg=gpg+1;
+	}
+	if(c4==n4)
+    {gpg=gpg+1;
+	}
+	
+	
+	
+	
+	gotoxy(2,13);
+    printf("Cifre giuste al posto sbagliato:   %d !",gps);
+    gotoxy(2,14);
+    printf("Cifre giuste al posto giusto:   %d !",gpg);   
+   
+   
+   
+   
+   if((n1*1000+n2*100+n3*10+n4)==N)
+{     gotoxy(2,16);
+      printf("\nCongratulazioni! Hai indovinato il numero!");
+         
+}
+
+
+ C=C-1;
+
+if(C==0){
+  system("cls");
+
+     gotoxy(35,1);
+     printf("Hai perso!");
+     gotoxy(5,5);
+     printf("Ritenta e sarai piu' fortunato.");
+     gotoxy(5,10);
+     printf("Premere un tasto qualsiasi per riprovare.");
+     C=vite;
+     getch();
+   } 
+   
+     getch(); 
+   
+  }while((n1*1000+n2*100+n3*10+n4)!=N);
+                       
+ }break;    
+
+	
+	
+  
+  case 3: {n1=rand()%10;
+          n2=rand()%10;
+          n3=rand()%10;
+          n4=rand()%10;
+          
+          vite=5;
+    		C=vite;
+    		
+    		      do {
+   system("cls");
+	 textcolor(14); 
+ 	gotoxy(30,1);
+    printf("Indovina il numero! %d%d%d%d",n1,n2,n3,n4);
+	 gotoxy(8,5);
+    printf("\nHai a disposizione: %d tentativi",C);
+    do{
+ 	 gotoxy(1,9);
+    printf("Immetti un numero di quattro cifre: ");
+    gotoxy(37,9);
+    printf("                            ");
+    gotoxy(37,9);
+    fflush(stdin);
+    scanf("%d",&N);
+    }while(N<0 || N>9999);
+    c1=N/1000;
+    c2=(N%1000)/100;
+    c3=(N%100)/10;
+    c4=N%10;
+    
+    gpg=0;
+    gps=0;
+    
+    
+    	if(c1==n2 || c1==n3 || c1==n4)
+    {gps=gps+1;
+	}
+	if(c2==n1 || c2==n3 || c2==n4)
+    {gps=gps+1;
+	}
+	if(c3==n1 || c3==n2 || c3==n4)
+    {gps=gps+1;
+	}
+	if(c4==n1 || c1==n2 || c1==n3)
+    {gps=gps+1;
+	}
+	if(c1==n1)
+    {gpg=gpg+1;
+	}
+	if(c2==n2)
+    {gpg=gpg+1;
+	}
+	if(c3==n3)
+    {gpg=gpg+1;
+	}
+	if(c4==n4)
+    {gpg=gpg+1;
+	}
+	
+	
+	
+	
+	gotoxy(2,13);
+    printf("Cifre giuste al posto sbagliato:   %d !",gps);
+    gotoxy(2,14);
+    printf("Cifre giuste al posto giusto:   %d !",gpg);   
+   
+   
+   
+   
+   if((n1*1000+n2*100+n3*10+n4)==N)
+{     gotoxy(2,16);
+      printf("\nCongratulazioni! Hai indovinato il numero!");
+         
+}
+
+
+ C=C-1;
+
+if(C==0){
+  system("cls");
+
+     gotoxy(35,1);
+     printf("Hai perso!");
+     gotoxy(5,5);
+     printf("Ritenta e sarai piu' fortunato.");
+     gotoxy(5,10);
+     printf("Premere un tasto qualsiasi per riprovare.");
+     C=vite;
+     getch();
+   } 
+   
+     getch(); 
+   
+  }while((n1*1000+n2*100+n3*10+n4)!=N);
+                       
+ }break;
+
+      
+
+ }
+ 
+ }
+
+
+case 3: 
+    do {
+        system("cls");
+        gotoxy(25,1);
+        printf("Grazie per aver utilizzato il programma");
+        gotoxy(10,15);
+        printf("Sei sicuro di voler uscire? (s/n)");
+        scanf("%c",&risp);
+    }while(risp!='s'&&risp!='S'&&risp!='n'&&risp!='N');
+    if(risp == 'n' || risp == 'N'){
+            scelta = 0;
+    }
+} 
+    
+    }while(scelta != 3);
+        
+      
+      
+}

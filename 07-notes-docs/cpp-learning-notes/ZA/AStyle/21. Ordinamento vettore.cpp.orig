@@ -1,0 +1,345 @@
+#include<stdlib.h>
+#include<stdio.h>
+#include<conio2.h>
+#include<windows.h>
+int cornice();
+int const n=8, b1=187, b2=200, b3=205, b4=186;
+	int V[n], i, comodo, s, scelta, cont, tc, tc1, tc2, riga, colonna, riga1, trovato, continuare, x, ls, li, m;
+	char risp;
+int main() {
+	SetConsoleTitle("Ordinamento vettori ~ Powered by Montanaro&Paone");
+	cont=0;
+	tc=0;
+	i=0;
+	do {
+		if(tc==0) {
+			do {
+				system ("cls");
+				if(cont==0) {
+					cont=cont+1;
+					riga=2;
+					colonna=2;
+					system("cls");
+					textcolor(9);
+					gotoxy(80,1);
+					printf("%c", b1);
+					gotoxy(80,25);
+					printf("%c", b1+1);
+					gotoxy(1,25);
+					printf("%c", b2);
+					gotoxy(1,1);
+					printf("%c", b2+1);
+					do {
+						Sleep(10);
+						gotoxy(colonna,1);
+						printf("%c", b3);
+						gotoxy(colonna,25);
+						printf("%c", b3);
+						colonna=colonna+1;
+					} while(colonna!=80);
+					do {
+						Sleep(10);
+						gotoxy(1,riga);
+						printf("%c", b4);
+						gotoxy(80,riga);
+						printf("%c", b4);
+						riga=riga+1;
+					} while(riga!=25);
+					scelta=0;
+					textcolor(15);
+					gotoxy(38,10);
+					printf("Menu'");
+					gotoxy(25,12);
+					printf("1. Carica vettore");
+					gotoxy(25,13);
+					textcolor(8);
+					printf("2. Visualizzazione vettore");
+					gotoxy(25,14);
+					printf("3. Ordinamento vettore");
+					gotoxy(25,15);
+					printf("4. Ricerca dicotomica");
+					gotoxy(25,16);
+					printf("5. Ricerca sequenziale");
+					textcolor(15);
+					gotoxy(25,17);
+					printf("6. Esci");
+					gotoxy(35,19);
+					printf("Scegli _");
+					gotoxy(42,19);
+					fflush(stdin);
+					scanf("%d", &scelta);
+				} else {
+					int cornice();
+					scelta=0;
+					textcolor(15);
+					gotoxy(38,10);
+					printf("Menu'");
+					gotoxy(25,12);
+					printf("1. Carica vettore");
+					textcolor(8);
+					gotoxy(25,13);
+					printf("2. Visualizzazione vettore");
+					gotoxy(25,14);
+					printf("3. Ordinamento vettore");
+					gotoxy(25,15);
+					printf("4. Ricerca dicotomica");
+					gotoxy(25,16);
+					printf("5. Ricerca sequenziale");
+					textcolor(15);
+					gotoxy(25,17);
+					printf("6. Esci");
+					gotoxy(35,19);
+					printf("Scegli _");
+					gotoxy(42,19);
+					fflush(stdin);
+					scanf("%d", &scelta);
+				}
+			} while(scelta!=1 && scelta!=6);
+		} else {
+			if(tc==1) {
+				do {
+					int cornice();
+					scelta=0;
+					textcolor(15);
+					gotoxy(38,10);
+					printf("Menu'");
+					gotoxy(25,12);
+					printf("1. Carica vettore");
+					gotoxy(25,13);
+					printf("2. Visualizzazione vettore");
+					gotoxy(25,14);
+					printf("3. Ordinamento vettore");
+					textcolor(8);
+					gotoxy(25,15);
+					printf("4. Ricerca dicotomica");
+					textcolor(15);
+					gotoxy(25,16);
+					printf("5. Ricerca sequenziale");
+					gotoxy(25,17);
+					printf("6. Esci");
+					gotoxy(35,19);
+					printf("Scegli _");
+					gotoxy(42,19);
+					fflush(stdin);
+					scanf("%d", &scelta);
+				} while(scelta<1 || scelta>6 && scelta==4);
+			} else {
+				if(tc==2) {
+					do {
+						int cornice();
+						scelta=0;
+						textcolor(15);
+						gotoxy(38,10);
+						printf("Menu'");
+						gotoxy(25,12);
+						printf("1. Carica vettore");
+						gotoxy(25,13);
+						printf("2. Visualizzazione vettore");
+						gotoxy(25,14);
+						printf("3. Ordinamento vettore");
+						gotoxy(25,15);
+						printf("4. Ricerca dicotomica");
+						gotoxy(25,16);
+						printf("5. Ricerca sequenziale");
+						gotoxy(25,17);
+						printf("6. Esci");
+						gotoxy(35,19);
+						printf("Scegli _");
+						gotoxy(42,19);
+						fflush(stdin);
+						scanf("%d", &scelta);
+					} while(scelta<1 || scelta>6);
+				}
+			}
+		}
+		switch (scelta) {
+			case 1: {
+				int cornice();
+				textcolor(15);
+				riga1=3;
+				for(i=0; i<n; i++, riga1++) {
+					do {
+						gotoxy(30,riga1);
+						printf("                                       ");
+						gotoxy(3,riga1);
+						printf("Inserisci il %d valore --> ", i+1);
+						gotoxy(30,riga1);
+						scanf("%d", &V[i]);
+					} while(V[i]<-100 || V[i]>100);
+				}
+				tc=1;
+			}
+			break;
+			case 2: {
+				int cornice();
+				textcolor(12);
+				if(tc==1) {
+					gotoxy(4,3);
+					printf("Visualizzazione vettore non ordinato");
+				} else {
+					gotoxy(4,3);
+					printf("Visualizzazione vettore ordinato");
+				}
+				riga1=5;
+				textcolor(15);
+				for (i=0; i<n; i++) {
+					gotoxy(4, riga1);
+					printf ("Valore numero %d --> %d", i+1, V[i]);
+					riga1=riga1+1;
+				}
+				getch();
+			}
+			break;
+			case 3: {
+				for(s=1; s<n; s++) {
+					for(i=0; i<n-s; i++) {
+						if(V[i]>V[i+1]) {
+							comodo=V[i];
+							V[i]=V[i+1];
+							V[i+1]=comodo;
+						}
+					}
+				}
+				tc=2;
+				gotoxy(20,21);
+				printf("Il vettore e' stato ordinato con successo.");
+				getch();
+			}
+			break;
+			case 4: {
+				int cornice();
+				textcolor(15);
+				do {
+					gotoxy(38,4);
+					printf("                                       ");
+					gotoxy(4,4);
+					printf("Immettere il valore da ricercare: _");
+					fflush(stdin);
+					gotoxy(38,4);
+					scanf("%d", &x);
+				} while(x<-100 || x>100);
+				li=0;
+				ls=n-1;
+				trovato=0;
+				continuare=1;
+				do {
+					m=(li+ls)/2;
+					if(x==V[m]) {
+						trovato=1;
+						continuare=0;
+					} else {
+						if(x>V[m]) {
+							li=m+1;
+						} else {
+							ls=m-1;
+						}
+						if(li>ls) {
+							continuare=0;
+						}
+					}
+				} while(continuare==1);
+				if(trovato==1) {
+					gotoxy(4,6);
+					printf("Il valore %d e' presente nel vettore alla posizione %d.", x, m+1);
+				} else {
+					gotoxy(4,6);
+					printf("Il valore ricercato non e' nel vettore.");
+				}
+				getch();
+			}
+			break;
+			case 5: {
+				int cornice();
+				textcolor(15);
+				trovato=0;
+				continuare=1;
+				do {
+					gotoxy(38,4);
+					printf("                                       ");
+					gotoxy(4,4);
+					printf("Immettere il valore da ricercare: _");
+					fflush(stdin);
+					gotoxy(38,4);
+					scanf("%d", &x);
+				} while(x<-100 || x>100);
+				if(tc==1) {
+					for(i=0; i<n && trovato==0; i++) {
+						if(V[i]==x) {
+							trovato=1;
+						}
+					}
+					if(trovato==1) {
+						gotoxy(4,6);
+						printf("Il valore %d e' presente nel vettore alla posizione %d.", x, i);
+					} else {
+						gotoxy(4,6);
+						printf("Il valore ricercato non e' nel vettore.");
+					}
+					getch();
+				} else {
+					for(i=0; i<n && continuare==1; i++) {
+						if(x==V[i]) {
+							trovato=1;
+							continuare=0;
+						} else {
+							if(x<V[i]) {
+								continuare=0;
+							}
+						}
+					}
+					if(trovato==1) {
+						gotoxy(4,6);
+						printf("Il valore %d e' presente nel vettore alla posizione %d.", x, i);
+					} else {
+						gotoxy(4,6);
+						printf("Il valore ricercato non e' nel vettore.");
+					}
+					getch();
+				}
+			}
+			break;
+			case 6: {
+				do {
+					int cornice();
+					textcolor(15);
+					gotoxy(25,4);
+					printf("Vuoi davvero uscire? (S/N) _");
+					fflush(stdin);
+					gotoxy(52,4);
+					scanf("%c", &risp);
+				} while(risp!='s' && risp!='S' && risp!='n' && risp!='N');
+				if(risp=='n' || risp=='N') {
+					scelta=0;
+				}
+			}
+		}
+	} while(scelta!=6);
+} //fine programma
+int cornice() {
+	riga=2;
+	colonna=2;
+	system("cls");
+	textcolor(9);
+	gotoxy(80,1);
+	printf("%c", b1);
+	gotoxy(80,25);
+	printf("%c", b1+1);
+	gotoxy(1,25);
+	printf("%c", b2);
+	gotoxy(1,1);
+	printf("%c", b2+1);
+	do {
+		gotoxy(colonna,1);
+		printf("%c", b3);
+		gotoxy(colonna,25);
+		printf("%c", b3);
+		colonna=colonna+1;
+	} while(colonna!=80);
+	do {
+		gotoxy(1,riga);
+		printf("%c", b4);
+		gotoxy(80,riga);
+		printf("%c", b4);
+		riga=riga+1;
+	} while(riga!=25);
+}
