@@ -133,7 +133,3 @@ Through this portfolio, I demonstrate:
 ## 📄 License
 
 MIT License - See LICENSE file for details
-
----
-
-**Last Updated**: January 2026
