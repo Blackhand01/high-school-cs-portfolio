@@ -1,6 +1,6 @@
 # High School CS Portfolio
 
-A comprehensive collection of high school computer science projects organized by topic and skill level. This portfolio showcases coursework in C++ programming and Arduino embedded systems development.
+A comprehensive collection of high school computer science projects organized by topic and skill level. This portfolio showcases coursework in C/C++ programming and Arduino embedded systems development.
 
 ## 📚 Repository Structure
 
